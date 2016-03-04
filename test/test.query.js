@@ -54,7 +54,7 @@ tape( 'function returns an error to a provided callback if an error is encounter
 	}
 });
 
-tape( 'function returns an error to a provided callback if an error is encountered when creating a repository', function test( t ) {
+tape( 'function returns an error to a provided callback if an error is encountered when creating a repository (rate limit info)', function test( t ) {
 	var query;
 	var opts;
 
@@ -161,6 +161,38 @@ tape( 'function returns rate limit info to a provided callback', function test( 
 	function done( error, data, info ) {
 		assert.deepEqual( info, expected );
 		t.ok( true, 'deep equal' );
+		t.end();
+	}
+});
+
+tape( 'function returns rate limit info to a provided callback (error)', function test( t ) {
+	var expected;
+	var query;
+	var opts;
+
+	query = proxyquire( './../lib/query.js', {
+		'./request.js': request
+	});
+
+	expected = info;
+
+	opts = getOpts();
+	query( 'powm1', opts, done );
+
+	function request( opts, body, clbk ) {
+		setTimeout( onTimeout, 0 );
+		function onTimeout() {
+			clbk( new Error( 'beep' ), response );
+		}
+	}
+
+	function done( error, data, info ) {
+		t.ok( error, 'returns an error' );
+		t.equal( data, null, 'no data' );
+
+		assert.deepEqual( info, expected );
+		t.ok( true, 'deep equal' );
+
 		t.end();
 	}
 });
