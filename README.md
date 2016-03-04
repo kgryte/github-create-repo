@@ -77,6 +77,23 @@ createRepo( 'beep', opts, clbk );
 
 ``` javascript
 var createRepo = require( 'github-create-repo' );
+
+var opts = {
+	'token': '<your_token_goes_here>',
+	'useragent': 'beep-boop-bop'
+};
+
+createRepo( 'beep', opts, clbk );
+
+function clbk( error, repo, info ) {
+	if ( info ) {
+		console.error( info );
+	}
+	if ( error ) {
+		throw new Error( error.message );
+	}
+	console.log( repo );
+}
 ```
 
 To run the example code from the top-level application directory,

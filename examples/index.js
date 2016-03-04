@@ -7,11 +7,14 @@ var opts = {
 	'useragent': 'beep-boop-bop'
 };
 
-createRepo( opts, clbk );
+createRepo( 'beep', opts, clbk );
 
-function clbk( error ) {
+function clbk( error, repo, info ) {
+	if ( info ) {
+		console.error( info );
+	}
 	if ( error ) {
 		throw new Error( error.message );
 	}
-	console.log( 'Repository successfully created.' );
+	console.log( repo );
 }
