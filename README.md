@@ -2,7 +2,7 @@ Create Repository
 ===
 [![NPM version][npm-image]][npm-url] [![Build Status][build-image]][build-url] [![Coverage Status][coverage-image]][coverage-url] [![Dependencies][dependencies-image]][dependencies-url]
 
-> Create a Github repository.
+> [Create][github-create-repo] a Github repository.
 
 
 ## Installation
@@ -18,15 +18,61 @@ $ npm install github-create-repo
 var createRepo = require( 'github-create-repo' );
 ```
 
-#### createRepo()
+<a name="create-repo"></a>
+#### createRepo( name, options, clbk )
 
-Creates a Github repository.
+[Creates][github-create-repo] a Github repository.
 
 ``` javascript
+var opts = {
+	'token': 'tkjorjk34ek3nj4!'
+};
 
+createRepo( 'beep', opts, clbk );
+
+function clbk( error, repo, info ) {
+	// TODO
+}
+```
+
+The `function` accepts the following `options`:
+*	__token__: Github [access token][github-token] (*required*).
+*	__useragent__: [user agent][github-user-agent] `string`.
+*	__org__: organization name. If no organization is specified, the repository is created as a personal repository for the authenticated user.
+*	__desc__: repository description. Default: `""`.
+*	__homepage__: project homepage. Default: `""`.
+*	__team__: team `id`. This `option` is only applicable when creating organization repositories.
+*	__gitignore__: `.gitignore` template name.
+*	__license__: `LICENSE` template name.
+*	__private__: `boolean` indicating whether to create a private repository. Default: `false`.
+*	__issues__: `boolean` indicating whether to enable issues. Default: `true`.
+*	__wiki__: `boolean` indicating whether to enable a Wiki. Default: `true`.
+*	__downloads__: `boolean` indicating whether to enable downloads. Default: `true`.
+*	__init__: `boolean` indicating whether to initialize the repository with an empty `README`. Default: `false`.
+
+To [authenticate][github-oauth2] with Github, set the [`token`][github-token] option.
+
+``` javascript
+var opts = {
+	'token': 'tkjorjk34ek3nj4!'
+};
+
+createRepo( 'beep', opts, clbk );
+```
+
+To specify a [user agent][github-user-agent], set the `useragent` option.
+
+``` javascript
+var opts = {
+	'token': 'tkjorjk34ek3nj4!',
+	'useragent': 'hello-github!'
+};
+
+createRepo( 'beep', opts, clbk );
 ```
 
 
+---
 ## Examples
 
 ``` javascript
@@ -38,6 +84,8 @@ To run the example code from the top-level application directory,
 ``` bash
 $ node ./examples/index.js
 ```
+
+__Note__: in order to run the example, you will need to obtain an access [token][github-token] with appropriate permissions and modify the `token` option accordingly.
 
 
 ---
@@ -75,6 +123,11 @@ Options:
        --gitignore template .gitignore template.
        --license template   License template.
 ```
+
+### Notes
+
+*	In addition to the [`token`][github-token] option, the [token][github-token] may also be specified by a [`GITHUB_TOKEN`][github-token] environment variable. The command-line option __always__ takes precedence.
+*	[Rate limit][github-rate-limit] information is written to `stderr`.
 
 
 ### Examples
@@ -162,3 +215,10 @@ Copyright &copy; 2016. Athan Reines.
 [tape]: https://github.com/substack/tape
 [istanbul]: https://github.com/gotwarlost/istanbul
 [testling]: https://ci.testling.com
+
+[github-api]: https://developer.github.com/v3/
+[github-token]: https://github.com/settings/tokens/new
+[github-oauth2]: https://developer.github.com/v3/#oauth2-token-sent-in-a-header
+[github-user-agent]: https://developer.github.com/v3/#user-agent-required
+[github-rate-limit]: https://developer.github.com/v3/rate_limit/
+[github-create-repo]: https://developer.github.com/v3/repos/#create
