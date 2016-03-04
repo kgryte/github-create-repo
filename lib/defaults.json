@@ -1,7 +1,7 @@
 {
 	"protocol": "https",
 	"hostname": "api.github.com",
-	"port": null,
+	"port": 443,
 	"pathname": "/",
 	"method": "POST",
 	"useragent": "https://github.com/kgryte/github-create-repo",

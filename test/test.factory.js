@@ -125,6 +125,37 @@ tape( 'if a `port` option is not specified and the protocol is `http`, the defau
 	}
 });
 
+tape( 'function returns a function which throws if provided a repository name argument which is not a string primitive', function test( t ) {
+	var values;
+	var opts;
+	var fcn;
+	var i;
+
+	values = [
+		5,
+		NaN,
+		null,
+		undefined,
+		true,
+		[],
+		{},
+		function(){}
+	];
+
+	opts = getOpts();
+	fcn = factory( opts, noop );
+	for ( i = 0; i < values.length; i++ ) {
+		t.throws( badValue( values[i] ), TypeError, 'throws a type error when provided ' + values[i] );
+	}
+	t.end();
+
+	function badValue( value ) {
+		return function badValue() {
+			fcn( value );
+		};
+	}
+});
+
 tape( 'function returns a function which returns an error to a provided callback if an error is encountered when fetching resources', function test( t ) {
 	var factory;
 	var opts;
