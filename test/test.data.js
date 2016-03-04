@@ -12,9 +12,6 @@ function setup() {
 	return {
 		'desc': 'beep',
 		'homepage': 'https://github.com/kgryte',
-		'team_id': 1,
-		'gitignore': 'Haskell',
-		'license': 'mit',
 		'private': false,
 		'issues': true,
 		'wiki': true,
@@ -77,6 +74,8 @@ tape( 'the function sets the `team_id` field', function test( t ) {
 	var out;
 
 	opts = setup();
+	opts.team = 1;
+
 	out = data( 'erf', opts );
 	out = JSON.parse( out );
 
@@ -89,6 +88,8 @@ tape( 'the function sets the `gitignore_template` field', function test( t ) {
 	var out;
 
 	opts = setup();
+	opts.gitignore = 'Haskell';
+
 	out = data( 'erf', opts );
 	out = JSON.parse( out );
 
@@ -101,6 +102,8 @@ tape( 'the function sets the `license_template` field', function test( t ) {
 	var out;
 
 	opts = setup();
+	opts.license = 'mit';
+
 	out = data( 'erf', opts );
 	out = JSON.parse( out );
 
@@ -113,6 +116,8 @@ tape( 'the function sets the `private` field', function test( t ) {
 	var out;
 
 	opts = setup();
+	opts.private = true;
+
 	out = data( 'erf', opts );
 	out = JSON.parse( out );
 
@@ -125,6 +130,8 @@ tape( 'the function sets the `has_issues` field', function test( t ) {
 	var out;
 
 	opts = setup();
+	opts.issues = false;
+
 	out = data( 'erf', opts );
 	out = JSON.parse( out );
 
@@ -137,6 +144,8 @@ tape( 'the function sets the `has_wiki` field', function test( t ) {
 	var out;
 
 	opts = setup();
+	opts.wiki = false;
+
 	out = data( 'erf', opts );
 	out = JSON.parse( out );
 
@@ -149,6 +158,8 @@ tape( 'the function sets the `has_downloads` field', function test( t ) {
 	var out;
 
 	opts = setup();
+	opts.downloads = false;
+
 	out = data( 'erf', opts );
 	out = JSON.parse( out );
 
@@ -161,6 +172,8 @@ tape( 'the function sets the `auto_init` field', function test( t ) {
 	var out;
 
 	opts = setup();
+	opts.init = true;
+
 	out = data( 'erf', opts );
 	out = JSON.parse( out );
 
