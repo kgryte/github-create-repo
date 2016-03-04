@@ -73,7 +73,8 @@ tape( 'the function sets the request headers', function test( t ) {
 	expected = {
 		'User-Agent': opts.useragent,
 		'Accept': opts.accept,
-		'Authorization': 'token ' + opts.token
+		'Authorization': 'token ' + opts.token,
+		'Content-Type': 'application/json'
 	};
 
 	t.deepEqual( out.headers, expected, 'sets the request headers' );

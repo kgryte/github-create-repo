@@ -50,8 +50,8 @@ tape( 'if provided a `token` option, the function sets the `Authorization` heade
 	t.end();
 });
 
-tape( 'if not provided any relevant header options, the function returns an empty object', function test( t ) {
+tape( 'the function sets the `Content-Type` header to `application/json`', function test( t ) {
 	var h = headers( {} );
-	t.deepEqual( h, {}, 'returns an empty object' );
+	t.deepEqual( h, {'Content-Type':'application/json'}, 'sets the `Content-Type`' );
 	t.end();
 });
