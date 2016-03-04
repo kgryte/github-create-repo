@@ -7,7 +7,7 @@ var opts = {
 	'useragent': 'beep-boop-bop'
 };
 
-createRepo( 'beep', opts, clbk );
+createRepo( 'test-github-create-repo', opts, clbk );
 
 function clbk( error, repo, info ) {
 	if ( info ) {
