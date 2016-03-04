@@ -56,7 +56,7 @@ The `function` accepts the following `options`:
 *	__license__: `LICENSE` template name.
 *	__private__: `boolean` indicating whether to create a private repository. Default: `false`.
 *	__issues__: `boolean` indicating whether to enable issues. Default: `true`.
-*	__wiki__: `boolean` indicating whether to enable a Wiki. Default: `true`.
+*	__wiki__: `boolean` indicating whether to enable a wiki. Default: `true`.
 *	__downloads__: `boolean` indicating whether to enable downloads. Default: `true`.
 *	__init__: `boolean` indicating whether to initialize the repository with an empty `README`. Default: `false`.
 
