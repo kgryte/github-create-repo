@@ -81,7 +81,7 @@ var opts = {
 createRepo( 'erfinv', opts, clbk );
 ```
 
-By default, the `function` [creates][github-create-repo] a repository for the authenticated user. To [create][github-create-repo] a repository in an organization in which the authenticated user is a member, set the `org` option.
+By default, the `function` [creates][github-create-repo] a repository for the authenticated user. To [create][github-create-repo] a repository in an organization the authenticated user is a member of, set the `org` option.
 
 ``` javascript
 var opts = {
