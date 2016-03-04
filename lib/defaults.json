@@ -5,5 +5,13 @@
 	"pathname": "/",
 	"method": "POST",
 	"useragent": "https://github.com/kgryte/github-create-repo",
-	"accept": "application/vnd.github.v3+json"
+	"accept": "application/vnd.github.v3+json",
+	"org": "",
+	"desc": "",
+	"homepage": "",
+	"private": false,
+	"issues": true,
+	"wiki": true,
+	"downloads": true,
+	"init": false
 }
