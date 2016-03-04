@@ -68,9 +68,6 @@ if ( args.version ) {
 
 opts = {};
 
-if ( args.useragent ) {
-	opts.useragent = args.useragent;
-}
 if ( args.token ) {
 	token = args.token;
 }
@@ -80,21 +77,59 @@ else if ( process.env.GITHUB_TOKEN ) {
 if ( token ) {
 	opts.token = token;
 }
+if ( args.useragent ) {
+	opts.useragent = args.useragent;
+}
+if ( args.org ) {
+	opts.org = args.org;
+}
+if ( args.desc ) {
+	opts.desc = args.desc;
+}
+if ( args.homepage ) {
+	opts.homepage = args.homepage;
+}
+if ( args.team ) {
+	opts.team = parseInt( args.team, 10 );
+}
+if ( args.gitignore ) {
+	opts.gitignore = args.gitignore;
+}
+if ( args.license ) {
+	opts.license = args.license;
+}
+if ( args.private ) {
+	opts.private = true;
+}
+if ( args.issues === false ) {
+	opts.issues = args.issues;
+}
+if ( args.wiki === false ) {
+	opts.wiki = args.wiki;
+}
+if ( args.downloads === false ) {
+	opts.downloads = args.downloads;
+}
+if ( args.init ) {
+	opts.init = args.init;
+}
 
 
 // CREATE REPO //
 
-create( opts, clbk );
+create( args._[0], opts, clbk );
 
 /**
-* FUNCTION: clbk( error )
+* FUNCTION: clbk( error, repo, info )
 *	Callback invoked upon creating a repository.
 *
 * @private
 * @param {Error|Null} error - error object
+* @param {Object} repo - repository information
+* @param {Object} info - rate limit info
 * @returns {Void}
 */
-function clbk( error ) {
+function clbk( error, body, info ) {
 	if ( error ) {
 		process.stderr.write( error.message, 'utf8' );
 		return process.exit( 1 );

@@ -1,11 +1,22 @@
 {
 	"string": [
 		"token",
-		"useragent"
+		"useragent",
+		"org",
+		"desc",
+		"homepage",
+		"team",
+		"gitignore",
+		"license"
 	],
 	"boolean": [
 		"help",
-		"version"
+		"version",
+		"private",
+		"no-issues",
+		"no-wiki",
+		"no-downloads",
+		"init"
 	],
 	"alias": {
 		"help": [
