@@ -1,0 +1,9 @@
+{
+	"protocol": "https",
+	"hostname": "api.github.com",
+	"port": 443,
+	"pathname": "/",
+	"method": "POST",
+	"useragent": "https://github.com/kgryte/github-create-repo",
+	"accept": "application/vnd.github.v3+json"
+}
