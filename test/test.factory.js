@@ -156,7 +156,7 @@ tape( 'function returns a function which throws if provided a repository name ar
 	}
 });
 
-tape( 'function returns a function which returns an error to a provided callback if an error is encountered when fetching resources', function test( t ) {
+tape( 'function returns a function which returns an error to a provided callback if an error is encountered when creating a repository', function test( t ) {
 	var factory;
 	var opts;
 	var fcn;
