@@ -128,7 +128,6 @@ Options:
 
 *	In addition to the [`token`][github-token] option, the [token][github-token] may also be specified by a [`GITHUB_TOKEN`][github-token] environment variable. The command-line option __always__ takes precedence.
 *	Repository information is written to `stdout`.
-
 *	[Rate limit][github-rate-limit] information is written to `stderr`.
 
 
