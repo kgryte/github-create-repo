@@ -74,7 +74,7 @@ tape( 'function throws if provided an invalid options argument', function test( 
 
 	function badValue( value ) {
 		return function badValue() {
-			create( value, {
+			create( 'erf', {
 				'private': value
 			}, noop );
 		};
