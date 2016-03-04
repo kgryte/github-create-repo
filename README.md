@@ -127,13 +127,39 @@ Options:
 ### Notes
 
 *	In addition to the [`token`][github-token] option, the [token][github-token] may also be specified by a [`GITHUB_TOKEN`][github-token] environment variable. The command-line option __always__ takes precedence.
+*	Repository information is written to `stdout`.
+
 *	[Rate limit][github-rate-limit] information is written to `stderr`.
 
 
 ### Examples
 
+Setting the access [token][github-token] using the command-line option:
+
 ``` bash
-$
+$ DEBUG=* ghcreaterepo --token <token> beep
+# => '{...}'
+```
+
+Setting the access [token][github-token] using an environment variable:
+
+``` bash
+$ DEBUG=* GITHUB_TOKEN=<token> ghcreaterepo beep
+# => '{...}'
+```
+
+For local installations, modify the command to point to the local installation directory; e.g., 
+
+``` bash
+$ DEBUG=* ./node_modules/.bin/ghcreaterepo --token <token> beep
+# => '{...}'
+```
+
+Or, if you have cloned this repository and run `npm install`, modify the command to point to the executable; e.g., 
+
+``` bash
+$ DEBUG=* node ./bin/cli --token <token> beep
+# => '{...}'
 ```
 
 
