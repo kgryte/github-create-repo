@@ -5,6 +5,7 @@
 var tape = require( 'tape' );
 var assert = require( 'chai' ).assert;
 var proxyquire = require( 'proxyquire' );
+var noop = require( '@kgryte/noop' );
 var create = require( './../lib/create.js' );
 
 
@@ -20,6 +21,93 @@ var info = require( './fixtures/info.json' );
 tape( 'file exports a function', function test( t ) {
 	t.equal( typeof create, 'function', 'export is a function' );
 	t.end();
+});
+
+tape( 'function throws if provided a name argument which is not a string', function test( t ) {
+	var values;
+	var opts;
+	var i;
+
+	values = [
+		5,
+		NaN,
+		null,
+		undefined,
+		true,
+		[],
+		{},
+		function(){}
+	];
+
+	opts = getOpts();
+	for ( i = 0; i < values.length; i++ ) {
+		t.throws( badValue( values[i] ), TypeError, 'throws a type error when provided ' + values[i] );
+	}
+	t.end();
+
+	function badValue( value ) {
+		return function badValue() {
+			create( value, opts, noop );
+		};
+	}
+});
+
+tape( 'function throws if provided an invalid options argument', function test( t ) {
+	var values;
+	var i;
+
+	values = [
+		'5',
+		5,
+		NaN,
+		null,
+		undefined,
+		[],
+		{},
+		function(){}
+	];
+
+	for ( i = 0; i < values.length; i++ ) {
+		t.throws( badValue( values[i] ), TypeError, 'throws a type error when provided ' + values[i] );
+	}
+	t.end();
+
+	function badValue( value ) {
+		return function badValue() {
+			create( value, {
+				'private': value
+			}, noop );
+		};
+	}
+});
+
+tape( 'function throws if provided a callback argument which is not a function', function test( t ) {
+	var values;
+	var opts;
+	var i;
+
+	values = [
+		'5',
+		5,
+		NaN,
+		null,
+		undefined,
+		true,
+		[],
+		{}
+	];
+
+	opts = getOpts();
+	for ( i = 0; i < values.length; i++ ) {
+		t.throws( badValue( values[i] ), TypeError, 'throws a type error when provided ' + values[i] );
+	}
+	t.end();
+
+	function badValue( value ) {
+		return function badValue() {
+			create( 'float64-to-words', opts, value );
+		};
+	}
 });
 
 tape( 'function returns an error to a provided callback if an error is encountered when creating a repository', function test( t ) {
