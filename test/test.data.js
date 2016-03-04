@@ -12,6 +12,7 @@ function setup() {
 	return {
 		'desc': 'beep',
 		'homepage': 'https://github.com/kgryte',
+		'team': null,
 		'private': false,
 		'issues': true,
 		'wiki': true,
