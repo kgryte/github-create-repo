@@ -129,12 +129,14 @@ create( args._[0], opts, clbk );
 * @param {Object} info - rate limit info
 * @returns {Void}
 */
-function clbk( error, body, info ) {
+function clbk( error, repo, info ) {
+	if ( info ) {
+		process.stderr.write( JSON.stringify( info )+'\n', 'utf8' );
+	}
 	if ( error ) {
-		process.stderr.write( error.message, 'utf8' );
+		process.stderr.write( error.message+'\n', 'utf8' );
 		return process.exit( 1 );
 	}
-	// TODO: write a confirmation message
-	process.stdout.write( '', 'utf8' );
+	process.stdout.write( JSON.stringify( repo )+'\n', 'utf8' );
 	process.exit( 0 );
 }
