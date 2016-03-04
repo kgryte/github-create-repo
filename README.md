@@ -99,7 +99,6 @@ Creates a reusable `function`.
 
 ``` javascript
 var opts = {
-	'username': 'kgryte',
 	'token': 'tkjorjk34ek3nj4!',
 	'org': 'math-io',
 	'private': false,
