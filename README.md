@@ -28,7 +28,7 @@ var opts = {
 	'token': 'tkjorjk34ek3nj4!'
 };
 
-createRepo( 'beep', opts, clbk );
+createRepo( 'gamma', opts, clbk );
 
 function clbk( error, repo, info ) {
 	// Check for rate limit information...
@@ -67,7 +67,7 @@ var opts = {
 	'token': 'tkjorjk34ek3nj4!'
 };
 
-createRepo( 'beep', opts, clbk );
+createRepo( 'erf', opts, clbk );
 ```
 
 To specify a [user agent][github-user-agent], set the `useragent` option.
@@ -78,7 +78,18 @@ var opts = {
 	'useragent': 'hello-github!'
 };
 
-createRepo( 'beep', opts, clbk );
+createRepo( 'erfinv', opts, clbk );
+```
+
+By default, the `function` [creates][github-create-repo] a repository for the authenticated user. To [create][github-create-repo] a repository in an organization in which the authenticated user is a member, set the `org` option.
+
+``` javascript
+var opts = {
+	'token': 'tkjorjk34ek3nj4!',
+	'org': 'math-io'
+};
+
+createRepo( 'betaln', opts, clbk );
 ```
 
 
