@@ -63,6 +63,8 @@ function create( ref, err, statusCode ) {
 
 	Request.prototype.constructor = Request;
 
+	Request.prototype.write = noop;
+
 	Request.prototype.end = noop;
 
 	return Request;

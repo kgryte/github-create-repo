@@ -36,7 +36,7 @@ tape( 'if unable to query an endpoint, an error is returned to a provided callba
 		'http': mock
 	});
 
-	request( opts, clbk );
+	request( opts, '{"name":"beep"}', clbk );
 
 	function clbk( error ) {
 		t.equal( typeof error, 'object', 'error is an object' );
@@ -60,7 +60,7 @@ tape( 'if an endpoint returns a status code other than 201, an error containing 
 		'http': mock
 	});
 
-	request( opts, clbk );
+	request( opts, '{"name":"beep"}', clbk );
 
 	function clbk( error, response, body ) {
 		t.equal( error.status, 404, 'equal status codes' );
@@ -89,7 +89,7 @@ tape( 'if an endpoint returns an invalid JSON response, an error with a status c
 		'utils-json-parse': parse
 	});
 
-	request( opts, clbk );
+	request( opts, '{"name":"beep"}', clbk );
 
 	function parse() {
 		return new Error( 'bad json' );
@@ -121,7 +121,7 @@ tape( 'if a query is successful, a JSON object is returned to a provided callbac
 		'http': mock
 	});
 
-	request( opts, clbk );
+	request( opts, '{"name":"beep"}', clbk );
 
 	function clbk( error, response, body ) {
 		if ( error ) {
@@ -153,7 +153,7 @@ tape( 'HTTPS is supported', function test( t ) {
 		'https': mock
 	});
 
-	request( opts, clbk );
+	request( opts, '{"name":"beep"}', clbk );
 
 	function clbk( error, response, body ) {
 		if ( error ) {
