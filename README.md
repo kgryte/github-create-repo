@@ -82,6 +82,33 @@ createRepo( 'beep', opts, clbk );
 ```
 
 
+#### createRepo.factory( options, clbk )
+
+Creates a reusable `function`.
+
+``` javascript
+var opts = {
+	'username': 'kgryte',
+	'token': 'tkjorjk34ek3nj4!',
+	'org': 'math-io',
+	'private': false,
+	'issues': true,
+	'wiki': true,
+	'downloads': true,
+	'init': false
+};
+
+var create = createRepo.factory( opts, clbk );
+
+create( 'beep' );
+create( 'boop' );
+create( 'bop' );
+// ...
+```
+
+The factory method accepts the same `options` as [`createRepo()`](#create-repo).
+
+
 ---
 ## Examples
 
