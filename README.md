@@ -120,6 +120,15 @@ The factory method accepts the same `options` as [`createRepo()`](#create-repo).
 
 
 ---
+## Notes
+
+*	[Rate limit][github-rate-limit] information includes the following:
+	-	__limit__: maximum number of requests a consumer is permitted to make per hour.
+	-	__remaining__: number of remaining requests.
+	-	__reset__: time at which the current [rate limit][github-rate-limit] window resets in [UTC seconds][unix-time].
+	
+
+---
 ## Examples
 
 ``` javascript
@@ -304,6 +313,8 @@ Copyright &copy; 2016. Athan Reines.
 [tape]: https://github.com/substack/tape
 [istanbul]: https://github.com/gotwarlost/istanbul
 [testling]: https://ci.testling.com
+
+[unix-time]: http://en.wikipedia.org/wiki/Unix_time
 
 [github-api]: https://developer.github.com/v3/
 [github-token]: https://github.com/settings/tokens/new
