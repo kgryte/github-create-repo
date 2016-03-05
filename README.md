@@ -119,14 +119,13 @@ create( 'bop' );
 The factory method accepts the same `options` as [`createRepo()`](#create-repo).
 
 
----
 ## Notes
 
 *	[Rate limit][github-rate-limit] information includes the following:
 	-	__limit__: maximum number of requests a consumer is permitted to make per hour.
 	-	__remaining__: number of remaining requests.
 	-	__reset__: time at which the current [rate limit][github-rate-limit] window resets in [UTC seconds][unix-time].
-	
+
 
 ---
 ## Examples
