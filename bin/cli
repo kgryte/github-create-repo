@@ -110,6 +110,9 @@ if ( args.wiki === false ) {
 if ( args.downloads === false ) {
 	opts.downloads = args.downloads;
 }
+if ( args.infer === false ) {
+  opts.inferFromPackageJson = args.infer;
+}
 if ( args.init ) {
 	opts.init = args.init;
 }

@@ -16,6 +16,7 @@
 		"no-issues",
 		"no-wiki",
 		"no-downloads",
+		"no-infer",
 		"init"
 	],
 	"alias": {

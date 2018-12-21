@@ -59,6 +59,7 @@ The `function` accepts the following `options`:
 *	__wiki__: `boolean` indicating whether to enable a wiki. Default: `true`.
 *	__downloads__: `boolean` indicating whether to enable downloads. Default: `true`.
 *	__init__: `boolean` indicating whether to initialize the repository with an empty `README`. Default: `false`.
+*	__inferFromPackageJson__: `boolean` inferring option from closest `package.json`. Default: `true`.
 
 To [authenticate][github-oauth2] with Github, set the [`token`][github-token] option.
 
@@ -194,6 +195,7 @@ Options:
        --init                Auto-initialize a repository with an empty README.
        --gitignore template  .gitignore template.
        --license template    License template.
+       --no-infer            Deny inferring option from closest package.json
 ```
 
 ### Notes
