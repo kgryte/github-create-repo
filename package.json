@@ -49,6 +49,7 @@
   "dependencies": {
     "debug": "^2.2.0",
     "minimist": "^1.2.0",
+    "read-pkg-up": "^4.0.0",
     "update-notifier": "^0.6.1",
     "utils-copy": "^1.1.1",
     "utils-json-parse": "^1.0.0",
