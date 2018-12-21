@@ -143,6 +143,7 @@ tape( 'function returns a function which throws if provided a repository name ar
 	];
 
 	opts = getOpts();
+	opts.inferFromPackageJson = false;
 	fcn = factory( opts, noop );
 	for ( i = 0; i < values.length; i++ ) {
 		t.throws( badValue( values[i] ), TypeError, 'throws a type error when provided ' + values[i] );

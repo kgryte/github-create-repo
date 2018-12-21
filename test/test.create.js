@@ -40,6 +40,7 @@ tape( 'function throws if provided a name argument which is not a string', funct
 	];
 
 	opts = getOpts();
+	opts.inferFromPackageJson = false;
 	for ( i = 0; i < values.length; i++ ) {
 		t.throws( badValue( values[i] ), TypeError, 'throws a type error when provided ' + values[i] );
 	}
@@ -98,6 +99,7 @@ tape( 'function throws if provided a callback argument which is not a function',
 	];
 
 	opts = getOpts();
+	opts.inferFromPackageJson = false;
 	for ( i = 0; i < values.length; i++ ) {
 		t.throws( badValue( values[i] ), TypeError, 'throws a type error when provided ' + values[i] );
 	}
